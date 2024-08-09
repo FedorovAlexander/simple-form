@@ -3,9 +3,9 @@
     <legend class="login-form__legend">Login</legend>
     <div class="login-form__field">
       <app-input-field
-        [label]="'Email'"
-        [errors]="loginForm.get('email').errors"
-        formControlName="email"
+        [label]="'Username'"
+        [errors]="loginForm.get('username').errors"
+        formControlName="username"
         placeholder="Enter your username"
         class="login-form__input"
       >
@@ -23,11 +23,20 @@
       </app-input-field>
     </div>
   </fieldset>
+  <div class="login-form__error" *ngIf="submitError">
+    {{ errorMessage }}
+  </div>
   <button
-    [disabled]="loginForm.errors"
+    [disabled]="loginForm.errors || isLoaderActive ? 'disabled' : null"
     type="submit"
     class="login-form__button"
+    [ngClass]="{
+      'login-form__button--disabled': loginForm.errors || isLoaderActive
+    }"
   >
-    Login
+    <ng-container *ngIf="!isLoaderActive; else loading">Login</ng-container>
+    <ng-template #loading>
+      <app-loader></app-loader>
+    </ng-template>
   </button>
 </form>

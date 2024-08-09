@@ -46,7 +46,6 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
-    console.log(this.errors);
   }
 
   registerOnTouched(fn: () => void): void {
