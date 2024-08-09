@@ -1,0 +1,23 @@
+<div class="input-control">
+  <label class="input-control__label">{{ label }}</label>
+  <input
+    #name="ngModel"
+    class="input-control__input"
+    [ngClass]="{
+      'input-control__input--error': errors && name.touched,
+      'input-control__input--success': !errors && name.touched,
+
+    }"
+    [(ngModel)]="value"
+    [placeholder]="placeholder"
+    [type]="type"
+    (blur)="onTouched()"
+    (input)="handleInputChange()"
+  />
+  <ng-container *ngIf="errors && name.touched" class="input-control__error">
+    <div *ngFor="let error of errors | keyvalue" class="input-control__error">
+      {{ getErrorMessage(error.key) }}
+      <!-- {{ currentErrors[error.key] }} -->
+    </div>
+  </ng-container>
+</div>

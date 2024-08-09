@@ -1,0 +1,31 @@
+.input-control {
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    &--error {
+      border-color: #dc3545;
+    }
+
+    &--success {
+      border-color: #28a745;
+    }
+
+    &--disabled {
+      background-color: #f8f9fa;
+      color: #6c757d;
+    }
+  }
+}
