@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   ValidationErrors,
 } from '@angular/forms';
-import { ERROR_MESSAGES, ErrorKeys } from '../../utils/error-messages.constant';
+import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
 
 @Component({
   selector: 'app-input-field',
@@ -59,14 +59,5 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   handleInputChange(): void {
     this.onChange(this.value);
-  }
-
-  getErrorMessage(errorName: string): string | null {
-    if (this.errors) {
-      if (this.errors[errorName]) {
-        return this.errorMessages[errorName as ErrorKeys];
-      }
-    }
-    return null;
   }
 }

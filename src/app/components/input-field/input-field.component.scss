@@ -1,3 +1,5 @@
+@use "../../../assets/scss/variables" as variables;
+
 .input-control {
   &__label {
     display: block;
@@ -8,24 +10,31 @@
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: variables.$baseBorderRadius;
+    transition: border-color 0.15s ease-in-out;
 
     &:focus {
+      border-color: variables.$primaryColor;
       outline: none;
-      border-color: #007bff;
     }
 
     &--error {
-      border-color: #dc3545;
+      border-color: variables.$errorColor;
     }
 
     &--success {
-      border-color: #28a745;
+      border-color: variables.$successColor;
     }
 
     &--disabled {
+      color: variables.$disabledTextColor;
       background-color: #f8f9fa;
-      color: #6c757d;
     }
+  }
+
+  &__error {
+    margin-top: 0.25rem;
+    color: variables.$errorColor;
+    font-size: 0.75rem;
   }
 }

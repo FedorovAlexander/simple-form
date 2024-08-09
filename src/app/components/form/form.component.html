@@ -1,30 +1,28 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-  <div class="login-form__field">
-    <app-input-field
-      [label]="'Email'"
-      [errors]="loginForm.get('email').errors"
-      formControlName="email"
-      placeholder="Enter your username"
-      class="login-form__input"
-    >
-    </app-input-field>
-  </div>
-  <div class="login-form__field">
-    <app-input-field
-      class="login-form__input"
-      [label]="'Password'"
-      [errors]="loginForm.get('password').errors"
-      type="password"
-      formControlName="password"
-      [placeholder]="'Enter your password'"
-    >
-    </app-input-field>
-  </div>
-  <div *ngIf="loginForm.errors" class="login-form__error">
-    <ng-container *ngFor="let error of [loginForm.errors]">{{
-      error
-    }}</ng-container>
-  </div>
+  <fieldset class="login-form__fieldset">
+    <legend class="login-form__legend">Login</legend>
+    <div class="login-form__field">
+      <app-input-field
+        [label]="'Email'"
+        [errors]="loginForm.get('email').errors"
+        formControlName="email"
+        placeholder="Enter your username"
+        class="login-form__input"
+      >
+      </app-input-field>
+    </div>
+    <div class="login-form__field">
+      <app-input-field
+        class="login-form__input"
+        [label]="'Password'"
+        [errors]="loginForm.get('password').errors"
+        type="password"
+        formControlName="password"
+        [placeholder]="'Enter your password'"
+      >
+      </app-input-field>
+    </div>
+  </fieldset>
   <button
     [disabled]="loginForm.errors"
     type="submit"

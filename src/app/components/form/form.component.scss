@@ -1,6 +1,27 @@
+@use "../../../assets/scss/variables" as variables;
+
 .login-form {
+  max-height: 400px;
+  padding: 1rem;
+  border-radius: variables.$baseBorderRadius;
+  background-color: #fff;
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  &__legend {
+    width: 100%;
+    margin-bottom: variables.$baseSpacing;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
   &__field {
-    margin-bottom: 1rem;
+    margin-bottom: variables.$baseSpacing;
   }
 
   &__input {
@@ -12,11 +33,11 @@
     display: block;
     width: 100%;
     padding: 0.75rem;
-    background-color: #007bff;
-    color: #fff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: variables.$baseBorderRadius;
+    color: #fff;
     font-size: 1rem;
+    cursor: pointer;
+    background-color: #007bff;
   }
 }
