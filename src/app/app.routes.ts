@@ -15,4 +15,11 @@ export const routes: Routes = [
     pathMatch: 'full',
     canActivate: [authGuard],
   },
+  {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./components/forgot-password/forgot-password.component').then(
+        (m) => m.ForgotPasswordComponent
+      ),
+  },
 ];
