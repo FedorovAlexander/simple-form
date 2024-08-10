@@ -17,11 +17,12 @@ describe('AuthService', () => {
     });
     service = TestBed.inject(AuthService);
     httpMock = TestBed.inject(HttpTestingController);
+
+    localStorage.clear();
   });
 
   afterEach(() => {
     httpMock.verify();
-    localStorage.clear();
   });
 
   it('should be created', () => {
@@ -37,6 +38,8 @@ describe('AuthService', () => {
   });
 
   it('should return false if user is not authenticated', (done) => {
+    // Make sure no token is set in localStorage
+    localStorage.removeItem('token');
     service.isAuthenticated().subscribe((isAuthenticated) => {
       expect(isAuthenticated).toBeFalse();
       done();
