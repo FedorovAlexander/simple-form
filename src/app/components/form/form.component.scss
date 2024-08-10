@@ -2,7 +2,7 @@
 
 .login-form {
   max-height: 400px;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   border-radius: variables.$baseBorderRadius;
   background-color: #fff;
 
@@ -56,5 +56,31 @@
   &__error {
     color: variables.$errorColor;
     font-size: 0.875rem;
+  }
+
+  &__forgot-password-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__forgot-password {
+    display: inline-block;
+    margin-top: variables.$baseSpacing;
+    text-align: center;
+    color: variables.$hintTextColor;
+    font-size: 0.875rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: darken(variables.$hintTextColor, 10%);
+    }
+
+    &:focus {
+      color: darken(variables.$hintTextColor, 10%);
+    }
   }
 }

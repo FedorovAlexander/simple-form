@@ -12,6 +12,8 @@ import { catchError, of, tap } from 'rxjs';
 import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
 import { LoaderService } from '../../services/loader-service/loader.service';
 import { LoaderComponent } from '../loader/loader.component';
+import { LoaderSize } from '../loader/loader-size.enum';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -21,6 +23,7 @@ import { LoaderComponent } from '../loader/loader.component';
     ReactiveFormsModule,
     InputFieldComponent,
     LoaderComponent,
+    RouterModule,
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
@@ -29,6 +32,8 @@ export class FormComponent implements OnInit {
   loginForm!: FormGroup;
   submitError = false;
   errorMessage = '';
+
+  readonly LoaderSize = LoaderSize;
 
   constructor(
     private fb: FormBuilder,

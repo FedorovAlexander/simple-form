@@ -36,7 +36,16 @@
   >
     <ng-container *ngIf="!isLoaderActive; else loading">Login</ng-container>
     <ng-template #loading>
-      <app-loader></app-loader>
+      <app-loader [size]="LoaderSize.small"></app-loader>
     </ng-template>
   </button>
+
+  <div class="login-form__forgot-password-container">
+    <a
+      class="login-form__forgot-password"
+      [routerLink]="['/forgot-password']"
+      routerLinkActive="router-link-active"
+      >Forgot your password?</a
+    >
+  </div>
 </form>
