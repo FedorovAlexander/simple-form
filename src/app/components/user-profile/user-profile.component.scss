@@ -1,0 +1,73 @@
+@use "../../../assets/scss/variables" as variables;
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.profile {
+  width: 100%;
+  max-width: 400px;
+  padding: variables.$baseSpacing;
+  border-radius: variables.$baseBorderRadius;
+  background-color: variables.$backgroundColorLight;
+  box-shadow: variables.$boxShadow;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+
+    &--name {
+      margin-left: variables.$baseSpacing;
+    }
+  }
+
+  &__image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: variables.$baseBorderRadius;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+
+    &--first {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    &--last {
+      margin: 0;
+      color: variables.$hintTextColor;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  &__info-label {
+    color: variables.$baseFontColor;
+    font-weight: bold;
+  }
+
+  &__info-value {
+    color: variables.$hintTextColor;
+  }
+}

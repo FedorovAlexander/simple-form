@@ -1,0 +1,38 @@
+<section class="profile" *ngIf="user$ | async as user">
+  <header class="profile__header" aria-labelledby="profile-heading">
+    <img
+      [src]="user.image"
+      alt="Profile image of Emily Johnson"
+      class="profile__image"
+    />
+    <div class="profile__name">
+      <h1 id="profile-heading" class="profile__name--first">
+        {{ user.firstName }}
+      </h1>
+      <h2 class="profile__name--last">{{ user.lastName }}</h2>
+    </div>
+  </header>
+  <article class="profile__info">
+    <div class="profile__info-item">
+      <span class="profile__info-label">Username:</span>
+      <span class="profile__info-value" aria-label="Username">{{
+        user.username
+      }}</span>
+    </div>
+    <div class="profile__info-item">
+      <span class="profile__info-label">Email:</span>
+      <a
+        [href]="'mailto:' + user.email"
+        class="profile__info-value"
+        aria-label="Email"
+        >{{ user.email }}</a
+      >
+    </div>
+    <div class="profile__info-item">
+      <span class="profile__info-label">Gender:</span>
+      <span class="profile__info-value" aria-label="Gender">
+        {{ user.gender }}
+      </span>
+    </div>
+  </article>
+</section>
