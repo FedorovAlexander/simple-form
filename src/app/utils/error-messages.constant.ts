@@ -4,6 +4,7 @@ export const ERROR_MESSAGES: ValidationMessages = {
   minlength: 'Please enter at least 3 characters',
   maxlength: 'Please enter no more than 20 characters',
   invalidLogin: 'Login failed. Please check your credentials and try again',
+  default: 'An error occurred. Please try again later',
 };
 
 interface ValidationMessages {
