@@ -13,7 +13,8 @@ import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
 import { LoaderService } from '../../services/loader-service/loader.service';
 import { LoaderComponent } from '../loader/loader.component';
 import { LoaderSize } from '../loader/loader-size.enum';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../services/user-service/user.service';
 
 @Component({
   selector: 'app-form',
@@ -30,7 +31,7 @@ import { RouterModule } from '@angular/router';
 })
 export class FormComponent implements OnInit {
   loginForm!: FormGroup;
-  submitError = false;
+  loginFailed = false;
   errorMessage = '';
 
   readonly LoaderSize = LoaderSize;
@@ -38,7 +39,9 @@ export class FormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private userService: UserService,
+    private router: Router
   ) {}
 
   get isLoaderActive(): boolean {
@@ -64,9 +67,10 @@ export class FormComponent implements OnInit {
         .login(username, password)
         .pipe(
           tap((response) => {
-            console.log('Login successful:', response);
             this.loaderService.hideLoader();
-            this.submitError = false;
+            this.loginFailed = false;
+            this.userService.setUser(response);
+            this.router.navigate(['/user', response.id]);
           }),
           catchError((error) => {
             if (
@@ -76,7 +80,7 @@ export class FormComponent implements OnInit {
             ) {
               this.errorMessage = ERROR_MESSAGES['invalidLogin'];
             }
-            this.submitError = true;
+            this.loginFailed = true;
             this.loaderService.hideLoader();
             return of(this.errorMessage);
           })

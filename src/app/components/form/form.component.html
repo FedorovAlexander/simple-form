@@ -23,11 +23,11 @@
       </app-input-field>
     </div>
   </fieldset>
-  <div class="login-form__error" *ngIf="submitError">
+  <div class="login-form__error" *ngIf="loginFailed">
     {{ errorMessage }}
   </div>
   <button
-    [disabled]="loginForm.errors || isLoaderActive ? 'disabled' : null"
+    [disabled]="!loginForm.valid || isLoaderActive ? 'disabled' : null"
     type="submit"
     class="login-form__button"
     [ngClass]="{
