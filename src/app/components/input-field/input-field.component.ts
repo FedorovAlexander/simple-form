@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -24,9 +24,9 @@ import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
     },
   ],
 })
-export class InputFieldComponent implements ControlValueAccessor {
+export class InputFieldComponent implements OnInit, ControlValueAccessor {
   @Input() label!: string;
-  @Input() type: string = 'text';
+  @Input() inputType: string = 'text';
   @Input() placeholder!: string;
   @Input() formControl!: FormControl;
   @Input() formControlName!: string;
@@ -34,8 +34,14 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() isDisabled: boolean = false;
 
   value: string = '';
+  showPassword: boolean = true;
 
   errorMessages = ERROR_MESSAGES;
+
+  ngOnInit(): void {
+    this.showPassword =
+      this.inputType === 'password' ? this.showPassword === false : true;
+  }
 
   onChange!: (value: string) => void;
   onTouched!: () => void;
@@ -58,5 +64,9 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   handleInputChange(): void {
     this.onChange(this.value);
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

@@ -6,6 +6,25 @@
     margin-bottom: 0.5rem;
   }
 
+  &__field-container {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: variables.$iconEye;
+    background-size: cover;
+    transform: translateY(-50%);
+
+    &--show {
+      background-image: variables.$iconEyeCrossed;
+    }
+  }
+
   &__input {
     width: 100%;
     padding: 0.5rem;

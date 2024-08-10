@@ -1,19 +1,29 @@
 <div class="input-control">
   <label class="input-control__label">{{ label }}</label>
-  <input
-    #name="ngModel"
-    class="input-control__input"
-    [ngClass]="{
+  <div class="input-control__field-container">
+    <input
+      #name="ngModel"
+      class="input-control__input"
+      [ngClass]="{
       'input-control__input--error': errors && name.touched,
       'input-control__input--success': !errors && name.touched,
 
     }"
-    [(ngModel)]="value"
-    [placeholder]="placeholder"
-    [type]="type"
-    (blur)="onTouched()"
-    (input)="handleInputChange()"
-  />
+      [(ngModel)]="value"
+      [placeholder]="placeholder"
+      [type]="showPassword ? 'text' : inputType"
+      (blur)="onTouched()"
+      (input)="handleInputChange()"
+    />
+    <span
+      *ngIf="inputType === 'password'"
+      class="input-control__icon"
+      [ngClass]="{
+        'input-control__icon--show': showPassword,
+      }"
+      (click)="togglePasswordVisibility()"
+    ></span>
+  </div>
   <ng-container *ngIf="errors && name.touched">
     <div *ngFor="let error of errors | keyvalue" class="input-control__error">
       {{ errorMessages[error.key] }}

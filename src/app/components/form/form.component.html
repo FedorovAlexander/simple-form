@@ -16,7 +16,7 @@
         class="login-form__input"
         [label]="'Password'"
         [errors]="loginForm.get('password').errors"
-        type="password"
+        [inputType]="'password'"
         formControlName="password"
         [placeholder]="'Enter your password'"
       >
