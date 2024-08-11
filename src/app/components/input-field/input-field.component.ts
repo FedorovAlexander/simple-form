@@ -66,7 +66,8 @@ export class InputFieldComponent implements OnInit, ControlValueAccessor {
     this.onChange(this.value);
   }
 
-  togglePasswordVisibility(): void {
+  togglePasswordVisibility($event: Event): void {
+    $event.preventDefault();
     this.showPassword = !this.showPassword;
   }
 }

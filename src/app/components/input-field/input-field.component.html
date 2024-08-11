@@ -15,14 +15,14 @@
       (blur)="onTouched()"
       (input)="handleInputChange()"
     />
-    <span
+    <button
       *ngIf="inputType === 'password'"
       class="input-control__icon"
       [ngClass]="{
         'input-control__icon--show': showPassword,
       }"
-      (click)="togglePasswordVisibility()"
-    ></span>
+      (click)="togglePasswordVisibility($event)"
+    ></button>
   </div>
   <ng-container *ngIf="errors && name.touched">
     <div *ngFor="let error of errors | keyvalue" class="input-control__error">
