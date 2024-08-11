@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
 
+## Description
+
+This is a simple form built using the Angular framework, designed to demonstrate basic form handling and API integration. The form is designed to be responsive and user-friendly, with validation and error handling.
+
+The form collects user input and makes a mock API call using the [dummyJson.com](https://dummyjson.com/docs/auth) service for authentication. You can use any user's credentials from the [list](https://dummyjson.com/users).
+
+Valid credentials examples:
+
+- username: `emilys`, password: `emilyspass`
+- username: `michaelw`, password: `michaelwpass`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
