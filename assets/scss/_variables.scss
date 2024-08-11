@@ -1,0 +1,22 @@
+$baseFontColor: #333;
+$baseFontSize: 16px;
+$baseFontFamily: "Roboto", sans-serif;
+$baseSpacing: 1rem;
+$baseBorderRadius: 4px;
+
+$backgroundColorLight: #f4f4f4;
+$backgroundColorDark: #333;
+
+$boxShadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+$primaryColor: #007bff;
+$successColor: #28a745;
+$errorColor: #dc3545;
+$warningColor: #ffc107;
+$disabledTextColor: #6c757d;
+$hintTextColor: #6c757d;
+
+//icons
+
+$iconEye: url("../icons/icon-eye.svg");
+$iconEyeCrossed: url("../icons/icon-eye-crossed.svg");
