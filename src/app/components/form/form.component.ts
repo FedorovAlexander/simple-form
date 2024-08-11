@@ -19,6 +19,7 @@ import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
 import { LoaderSize } from '../loader/loader-size.enum';
 import { ERROR_CODES } from '../../utils/error-codes.constant';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserLoginResponse } from '../../models/user.interface';
 
 interface LoginFormValue {
   username: string;
@@ -89,11 +90,10 @@ export class FormComponent implements OnInit {
       .subscribe();
   }
 
-  private handleSuccess(response: any): void {
+  private handleSuccess(response: UserLoginResponse | null): void {
     this.loaderService.hideLoader();
     this.loginFailed = false;
-    this.userService.setUser(response);
-    this.router.navigate(['/user', response.id]);
+    this.router.navigate(['/user', response?.id]);
   }
 
   private handleError(error: HttpErrorResponse): Observable<string> {
