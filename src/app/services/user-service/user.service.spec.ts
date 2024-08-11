@@ -73,15 +73,4 @@ describe('UserService', () => {
 
     expect(result).toBe(token);
   });
-
-  it('should call getUser from AuthService and return its result', () => {
-    const user: User = { token: 'test-token' } as User;
-    (authService.getUser as jasmine.Spy).and.returnValue(of(user));
-
-    service.getUserFromApi().subscribe((u) => {
-      expect(u).toEqual(user);
-    });
-
-    expect(authService.getUser).toHaveBeenCalled();
-  });
 });

@@ -8,7 +8,7 @@ import { UserService } from '../user-service/user.service';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private injector: Injector) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   isAuthenticated(): Observable<boolean> {
     const token = localStorage.getItem('token');
@@ -28,8 +28,7 @@ export class AuthService {
     return this.http.post<User>(url, body, { headers }).pipe(
       map((response) => {
         localStorage.setItem('token', response.token);
-        const userService = this.injector.get<UserService>(UserService);
-        userService.setUser(response);
+        this.userService.setUser(response);
         return response;
       }),
       catchError(() => of(null))
