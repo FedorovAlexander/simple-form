@@ -20,19 +20,45 @@
       }}</span>
     </div>
     <div class="profile__info-item">
+      <span class="profile__info-label">Gender:</span>
+      <span class="profile__info-value" aria-label="Gender">
+        {{ user.gender }}
+      </span>
+    </div>
+    <div class="profile__info-item">
+      <span class="profile__info-label">Age:</span>
+      <span class="profile__info-value" aria-label="Age">{{ user.age }}</span>
+    </div>
+    <div class="profile__info-item">
+      <span class="profile__info-label">Date of Birth:</span>
+      <span class="profile__info-value" aria-label="Date of Birth">{{
+        user.birthDate
+      }}</span>
+    </div>
+    <div class="profile__info-item">
       <span class="profile__info-label">Email:</span>
       <a
         [href]="'mailto:' + user.email"
-        class="profile__info-value"
+        class="profile__info-value profile__info-value--email"
         aria-label="Email"
         >{{ user.email }}</a
       >
     </div>
     <div class="profile__info-item">
-      <span class="profile__info-label">Gender:</span>
-      <span class="profile__info-value" aria-label="Gender">
-        {{ user.gender }}
-      </span>
+      <span class="profile__info-label">Phone:</span>
+      <a
+        [href]="'tel:' + user.phone"
+        class="profile__info-value profile__info-value--phone"
+        aria-label="Phone"
+        >{{ user.phone }}</a
+      >
+    </div>
+
+    <div class="profile__info-item">
+      <span class="profile__info-label">Company:</span>
+      <span class="profile__info-value" aria-label="Company">{{
+        user.company?.name
+      }}</span>
     </div>
   </article>
 </section>

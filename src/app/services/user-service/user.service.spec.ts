@@ -3,7 +3,7 @@ import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../auth-service/auth.service';
 import { of } from 'rxjs';
-import { User } from '../../models/user.interface';
+import { UserLoginResponse } from '../../models/user.interface';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('UserService', () => {
@@ -20,7 +20,7 @@ describe('UserService', () => {
           useValue: {
             getUser: jasmine
               .createSpy('getUser')
-              .and.returnValue(of({} as User)),
+              .and.returnValue(of({} as UserLoginResponse)),
           },
         },
       ],
@@ -36,10 +36,12 @@ describe('UserService', () => {
   });
 
   it('should set user and token correctly', () => {
-    const user: User = { token: 'test-token' } as User;
+    const user: UserLoginResponse = {
+      token: 'test-token',
+    } as UserLoginResponse;
     spyOn(localStorage, 'setItem');
 
-    service.setUser(user);
+    service.setUserToken(user.token);
 
     service.getUser().subscribe((user) => {
       expect(user).toEqual(user);
@@ -48,8 +50,10 @@ describe('UserService', () => {
   });
 
   it('should get the current user', () => {
-    const user: User = { token: 'test-token' } as User;
-    service.setUser(user);
+    const user: UserLoginResponse = {
+      token: 'test-token',
+    } as UserLoginResponse;
+    service.setUserToken(user.token);
 
     service.getUser().subscribe((user) => {
       expect(user).toEqual(user);

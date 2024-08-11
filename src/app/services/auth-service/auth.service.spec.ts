@@ -4,7 +4,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
-import { User } from '../../models/user.interface';
+import { UserLoginResponse } from '../../models/user.interface';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -47,7 +47,10 @@ describe('AuthService', () => {
   });
 
   it('should login user', fakeAsync(() => {
-    const user: User = { id: 1, username: 'test' } as User;
+    const user: UserLoginResponse = {
+      id: 1,
+      username: 'test',
+    } as UserLoginResponse;
     const loginResponse = { id: 1, username: 'test' };
 
     service.login('test', 'test').subscribe((response) => {

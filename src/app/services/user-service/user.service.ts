@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../models/user.interface';
-import { AuthService } from '../auth-service/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +8,12 @@ import { AuthService } from '../auth-service/auth.service';
 export class UserService {
   user$ = new BehaviorSubject<User | null>(null);
 
-  setUser(user: User): void {
+  setUserToken(token: string): void {
+    this.setTokenToLocalStorage(token);
+  }
+
+  setUser(user: User | null): void {
     this.user$.next(user);
-    this.setTokenToLocalStorage(user.token);
   }
 
   getUser(): Observable<User | null> {

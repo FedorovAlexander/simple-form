@@ -67,5 +67,21 @@
 
   &__info-value {
     color: variables.$hintTextColor;
+    transition: all 0.3s;
+
+    &--phone {
+      text-decoration: none;
+      &:hover {
+        color: variables.$primaryColor;
+      }
+    }
+
+    &--email {
+      text-decoration: none;
+
+      &:hover {
+        color: variables.$primaryColor;
+      }
+    }
   }
 }

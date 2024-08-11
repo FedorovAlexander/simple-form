@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { User } from '../../models/user.interface';
+import { User, UserLoginResponse } from '../../models/user.interface';
 import { UserService } from '../user-service/user.service';
 
 @Injectable({
@@ -15,7 +15,10 @@ export class AuthService {
     return of(!!token);
   }
 
-  login(username: string, password: string): Observable<User | null> {
+  login(
+    username: string,
+    password: string
+  ): Observable<UserLoginResponse | null> {
     const url = 'https://dummyjson.com/auth/login';
 
     const body = {
@@ -25,10 +28,10 @@ export class AuthService {
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<User>(url, body, { headers }).pipe(
+    return this.http.post<UserLoginResponse>(url, body, { headers }).pipe(
       map((response) => {
         localStorage.setItem('token', response.token);
-        this.userService.setUser(response);
+        this.userService.setUserToken(response.token);
         return response;
       }),
       catchError(() => of(null))
@@ -42,6 +45,12 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + token,
     });
-    return this.http.get<User>(url, { headers });
+    return this.http.get<User>(url, { headers }).pipe(
+      map((user) => {
+        this.userService.setUser(user);
+        return user;
+      }),
+      catchError(() => of(null))
+    );
   }
 }
