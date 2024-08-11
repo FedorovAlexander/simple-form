@@ -1,3 +1,5 @@
+@use "../../../assets/scss/variables" as variables;
+
 :host {
   display: flex;
   justify-content: center;
@@ -5,6 +7,7 @@
   width: 100%;
   height: 100vh;
   padding: 1rem;
+  background-image: variables.$background;
 
   .container {
     width: 100%;

@@ -5,10 +5,10 @@
       #name="ngModel"
       class="input-control__input"
       [ngClass]="{
-      'input-control__input--error': errors && name.touched,
-      'input-control__input--success': !errors && name.touched,
-
-    }"
+        'input-control__input--error': errors && name.touched,
+        'input-control__input--success': !errors && name.touched,
+        'input-control__input--password': inputType === 'password'
+      }"
       [(ngModel)]="value"
       [placeholder]="placeholder"
       [type]="showPassword ? 'text' : inputType"

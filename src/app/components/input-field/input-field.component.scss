@@ -49,6 +49,10 @@
       color: variables.$disabledTextColor;
       background-color: #f8f9fa;
     }
+
+    &--password {
+      padding-right: 2.5rem;
+    }
   }
 
   &__error {
