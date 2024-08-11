@@ -19,7 +19,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Deployment
 
-Run `npm run deploy` to deploy the application to GitHub Pages. The application will be available at (https://fedorovalexander.github.io/simple-form/)[https://fedorovalexander.github.io/simple-form/].
+Run `npm run deploy` to deploy the application to GitHub Pages. The application will be available at [https://fedorovalexander.github.io/simple-form/](https://fedorovalexander.github.io/simple-form/).
 
 ## Code scaffolding
 
