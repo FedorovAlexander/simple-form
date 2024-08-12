@@ -33,8 +33,7 @@ export class AuthService {
         localStorage.setItem('token', response.token);
         this.userService.setUserToken(response.token);
         return response;
-      }),
-      catchError(() => of(null))
+      })
     );
   }
 
