@@ -1,5 +1,5 @@
 <div class="input-control">
-  <label class="input-control__label">{{ label }}</label>
+  <label class="input-control__label" [for]="inputId">{{ label }}</label>
   <div class="input-control__field-container">
     <input
       #name="ngModel"
@@ -7,9 +7,14 @@
       [ngClass]="{
         'input-control__input--error': errors && name.touched,
         'input-control__input--success': !errors && name.touched,
-        'input-control__input--password': inputType === inputTypes.password,
+        'input-control__input--password': inputType === inputTypes.password
       }"
       [(ngModel)]="value"
+      [attr.id]="inputId"
+      [attr.aria-describedby]="
+        errors && name.touched ? 'error-' + inputId : null
+      "
+      [attr.aria-invalid]="errors && name.touched"
       [placeholder]="placeholder"
       [type]="showPassword ? inputTypes.text : inputType"
       (blur)="onTouched()"
@@ -19,8 +24,10 @@
       *ngIf="inputType === inputTypes.password"
       class="input-control__icon"
       [ngClass]="{
-        'input-control__icon--show': showPassword,
+        'input-control__icon--show': showPassword
       }"
+      type="button"
+      [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
       (click)="togglePasswordVisibility($event)"
     ></button>
   </div>

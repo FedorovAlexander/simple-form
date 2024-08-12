@@ -5,6 +5,7 @@
       <app-input-field
         [label]="'Username'"
         [errors]="loginForm.get('username').errors"
+        [inputId]="'text'"
         formControlName="username"
         placeholder="Enter your username"
         class="login-form__input"
@@ -19,6 +20,7 @@
         [inputType]="'password'"
         formControlName="password"
         [placeholder]="'Enter your password'"
+        [inputId]="'password'"
       >
       </app-input-field>
     </div>

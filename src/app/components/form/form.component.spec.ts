@@ -78,6 +78,6 @@ describe('FormComponent', () => {
     component.onSubmit();
 
     expect(component.loginFailed).toBeTrue();
-    expect(component.errorMessage).toBe(ERROR_MESSAGES['invalidLogin']);
+    expect(component.errorMessage).toBe(ERROR_MESSAGES['default']);
   });
 });

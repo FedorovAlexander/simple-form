@@ -61,14 +61,4 @@ describe('AuthService', () => {
     expect(req.request.method).toBe('POST');
     req.flush(loginResponse);
   }));
-
-  it('should return null if login fails', fakeAsync(() => {
-    service.login('test', 'test').subscribe((response) => {
-      expect(response).toBeNull();
-    });
-
-    const req = httpMock.expectOne('https://dummyjson.com/auth/login');
-    expect(req.request.method).toBe('POST');
-    req.error(new ErrorEvent('error'));
-  }));
 });

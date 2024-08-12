@@ -33,6 +33,7 @@ export class InputFieldComponent implements OnInit, ControlValueAccessor {
   @Input() formControlName!: string;
   @Input() errors: ValidationErrors | null = null;
   @Input() isDisabled: boolean = false;
+  @Input() inputId!: string;
 
   value: string = '';
   showPassword: boolean = true;
