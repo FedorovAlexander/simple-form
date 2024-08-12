@@ -7,16 +7,16 @@
       [ngClass]="{
         'input-control__input--error': errors && name.touched,
         'input-control__input--success': !errors && name.touched,
-        'input-control__input--password': inputType === 'password'
+        'input-control__input--password': inputType === inputTypes.password,
       }"
       [(ngModel)]="value"
       [placeholder]="placeholder"
-      [type]="showPassword ? 'text' : inputType"
+      [type]="showPassword ? inputTypes.text : inputType"
       (blur)="onTouched()"
       (input)="handleInputChange()"
     />
     <button
-      *ngIf="inputType === 'password'"
+      *ngIf="inputType === inputTypes.password"
       class="input-control__icon"
       [ngClass]="{
         'input-control__icon--show': showPassword,

@@ -9,6 +9,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
+import { InputTypes } from './input-types.enum';
 
 @Component({
   selector: 'app-input-field',
@@ -37,10 +38,13 @@ export class InputFieldComponent implements OnInit, ControlValueAccessor {
   showPassword: boolean = true;
 
   errorMessages = ERROR_MESSAGES;
+  inputTypes = InputTypes;
 
   ngOnInit(): void {
     this.showPassword =
-      this.inputType === 'password' ? this.showPassword === false : true;
+      this.inputType === this.inputTypes.password
+        ? this.showPassword === false
+        : true;
   }
 
   onChange!: (value: string) => void;
