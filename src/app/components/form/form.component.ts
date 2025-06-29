@@ -27,17 +27,16 @@ interface LoginFormValue {
 }
 
 @Component({
-  selector: 'app-form',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    InputFieldComponent,
-    LoaderComponent,
-    RouterModule,
-  ],
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+    selector: 'app-form',
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        InputFieldComponent,
+        LoaderComponent,
+        RouterModule,
+    ],
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
   loginForm!: FormGroup;

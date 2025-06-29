@@ -6,11 +6,10 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
-  selector: 'app-user-profile',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss',
+    selector: 'app-user-profile',
+    imports: [CommonModule],
+    templateUrl: './user-profile.component.html',
+    styleUrl: './user-profile.component.scss'
 })
 export class UserProfileComponent implements OnInit {
   user$: Observable<User | null> | undefined;

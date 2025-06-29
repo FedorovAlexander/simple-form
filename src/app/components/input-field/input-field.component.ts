@@ -12,18 +12,17 @@ import { ERROR_MESSAGES } from '../../utils/error-messages.constant';
 import { InputTypes } from './input-types.enum';
 
 @Component({
-  selector: 'app-input-field',
-  standalone: true,
-  templateUrl: './input-field.component.html',
-  styleUrls: ['./input-field.component.scss'],
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputFieldComponent),
-      multi: true,
-    },
-  ],
+    selector: 'app-input-field',
+    templateUrl: './input-field.component.html',
+    styleUrls: ['./input-field.component.scss'],
+    imports: [CommonModule, ReactiveFormsModule, FormsModule],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => InputFieldComponent),
+            multi: true,
+        },
+    ]
 })
 export class InputFieldComponent implements OnInit, ControlValueAccessor {
   @Input() label!: string;
